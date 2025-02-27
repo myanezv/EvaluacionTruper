@@ -10,13 +10,18 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name="SUCURSAL")
+@Table(name="ROL")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Sucursal {
+public class Rol {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int sucursal_id;
-	private String nombre;
+	private int rol_id;
+	
+	private String rol_nombre;
+	
+	private String rol_descripcion;
+	
+	private int status;
 }

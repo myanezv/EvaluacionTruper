@@ -1,7 +1,7 @@
 package com.evaluacion.truper.service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,11 +19,12 @@ public class SucursalService {
 		List<SucursalDTO>response  = null;
 		List<Sucursal> sucursales = sucursalRepository.findAll();
 		if (!sucursales.isEmpty()) {
-//			response = sucursales.stream().map(sucursal -> new SucursalDTO(
-//					sucursal.getSucursal_id(),
-//					sucursal.getNombre()
-//					));
-			
+			response = sucursales.stream()
+					.map(sucursal -> new SucursalDTO(
+					sucursal.getSucursal_id(),
+					sucursal.getNombre()
+					))
+					.collect(Collectors.toList());			
 		}
 		
 		return response;
